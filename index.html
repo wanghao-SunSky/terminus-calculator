@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Basic SEO Tags -->
+    <title>Terminus Calculator (BO6)</title>
+    <meta name="description"
+        content="Professional online math equation calculator. Quickly and accurately solve complex mathematical equations and analysis.">
+    <meta name="keywords"
+        content="terminus equation calculator,math tool,online calculator,equation solver,BO6,mathematics">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://terminus-calculator.github.io/" />
+
+    <!-- Favicon Tags -->
+    <!-- SVG favicon - Modern browsers -->
+    <link rel="icon" type="image/svg+xml" href="/images/logo.svg">
+
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Terminus Calculator (BO6)">
+    <meta property="og:description"
+        content="Professional online calculator for solving mathematical equations with comprehensive analysis capabilities.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://terminus-calculator.github.io/">
+    <meta property="og:image" content="https://terminus-calculator.github.io/images/logo.svg">
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Terminus Calculator (BO6)">
+    <meta name="twitter:description" content="Professional online calculator for solving mathematical equations.">
+    <meta name="twitter:image" content="https://terminus-calculator.github.io/images/logo.svg">
+
+    <!-- Mobile Optimization -->
+    <meta name="format-detection" content="telephone=no">
+    <meta name="theme-color" content="#007BFF">
+
+    <!-- Main Styles -->
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #333;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            margin-bottom: 2rem;
+            font-size: 1.8rem;
+            color: #007BFF;
+            text-align: center;
+        }
+
+        .variables-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 2rem;
+        }
+
+        .variable-section {
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .variable-section h2 {
+            margin: 0 0 1rem 0;
+            font-size: 1.4rem;
+            color: #007BFF;
+            text-align: center;
+        }
+
+        .symbols-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            justify-items: center;
+        }
+
+        .image-option {
+            cursor: pointer;
+            transition: transform 0.2s;
+            position: relative;
+        }
+
+        .image-option img {
+            width: 70px;
+            height: 70px;
+            border-radius: 8px;
+            border: 2px solid transparent;
+            transition: all 0.2s ease;
+            object-fit: cover;
+        }
+
+        .image-option.selected img {
+            border-color: #ff4444;
+            box-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
+        }
+
+        .image-option:hover {
+            transform: scale(1.05);
+        }
+
+        #results {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            margin-top: 2rem;
+            width: 100%;
+            max-width: 600px;
+        }
+
+        #results h3 {
+            color: #007BFF;
+            margin-bottom: 1rem;
+        }
+
+        .result-item {
+            font-size: 1.1rem;
+            margin: 0.5rem 0;
+            padding: 0.5rem;
+            background: #f8f9fa;
+            border-radius: 4px;
+        }
+
+        .footer {
+            margin-top: 2rem;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #666;
+        }
+
+        @media (max-width: 600px) {
+            .variables-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .image-option img {
+                width: 50px;
+                height: 50px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Terminus Calculator (BO6)</h1>
+
+        <div class="variables-grid">
+            <div class="variable-section">
+                <h2>X</h2>
+                <div class="symbols-grid" id="x-variables">
+                    <div class="image-option" onclick="selectVariable('x', 0)">
+                        <img src="images/symbols-01.jpg" alt="Value 0">
+                    </div>
+                    <div class="image-option" onclick="selectVariable('x', 10)">
+                        <img src="images/symbols-02.jpg" alt="Value 10">
+                    </div>
+                    <div class="image-option" onclick="selectVariable('x', 11)">
+                        <img src="images/symbols-03.jpg" alt="Value 11">
+                    </div>
+                    <div class="image-option" onclick="selectVariable('x', 20)">
+                        <img src="images/symbols-04.jpg" alt="Value 20">
+                    </div>
+                    <div class="image-option" onclick="selectVariable('x', 21)">
+                        <img src="images/symbols-05.jpg" alt="Value 21">
+                    </div>
+                    <div class="image-option" onclick="selectVariable('x', 22)">
+                        <img src="images/symbols-06.jpg" alt="Value 22">
+                    </div>
+                </div>
+            </div>
+
+            <div class="variable-section">
+                <h2>Y</h2>
+                <div class="symbols-grid" id="y-variables">
+                    <!-- 复制相同的图像选项结构，更改onclick值为'y' -->
+                    <div class="image-option" onclick="selectVariable('y', 0)">
+                        <img src="images/symbols-01.jpg" alt="Value 0">
+                    </div>
+                    <div class="image-option" onclick="selectVariable('y', 10)">
+                        <img src="images/symbols-02.jpg" alt="Value 10">
+                    </div>
+                    <div class="image-option" onclick="selectVariable('y', 11)">
+                        <img src="images/symbols-03.jpg" alt="Value 11">
+                    </div>
+                    <div class="image-option" onclick="selectVariable('y', 20)">
+                        <img src="images/symbols-04.jpg" alt="Value 20">
+                    </div>
+                    <div class="image-option" onclick="selectVariable('y', 21)">
+                        <img src="images/symbols-05.jpg" alt="Value 21">
+                    </div>
+                    <div class="image-option" onclick="selectVariable('y', 22)">
+                        <img src="images/symbols-06.jpg" alt="Value 22">
+                    </div>
+                </div>
+            </div>
+
+            <div class="variable-section">
+                <h2>Z</h2>
+                <div class="symbols-grid" id="z-variables">
+                    <!-- 复制相同的图像选项结构，更改onclick值为'z' -->
+                    <div class="image-option" onclick="selectVariable('z', 0)">
+                        <img src="images/symbols-01.jpg" alt="Value 0">
+                    </div>
+                    <div class="image-option" onclick="selectVariable('z', 10)">
+                        <img src="images/symbols-02.jpg" alt="Value 10">
+                    </div>
+                    <div class="image-option" onclick="selectVariable('z', 11)">
+                        <img src="images/symbols-03.jpg" alt="Value 11">
+                    </div>
+                    <div class="image-option" onclick="selectVariable('z', 20)">
+                        <img src="images/symbols-04.jpg" alt="Value 20">
+                    </div>
+                    <div class="image-option" onclick="selectVariable('z', 21)">
+                        <img src="images/symbols-05.jpg" alt="Value 21">
+                    </div>
+                    <div class="image-option" onclick="selectVariable('z', 22)">
+                        <img src="images/symbols-06.jpg" alt="Value 22">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="results">
+            <h3>Results</h3>
+            <div class="result-item" id="result1">1° Number: <strong>-</strong></div>
+            <div class="result-item" id="result2">2° Number: <strong>-</strong></div>
+            <div class="result-item" id="result3">3° Number: <strong>-</strong></div>
+        </div>
+
+        <!-- <div class="footer">
+            Made by Simo22
+            <a href="https://paypal.me/sim022" target="_blank">Help me buy another month of adobe creative cloud</a>
+        </div> -->
+    </div>
+
+    <script>
+        let xValue = null;
+        let yValue = null;
+        let zValue = null;
+
+        function selectVariable(variable, value) {
+            // 更新变量值
+            switch (variable) {
+                case 'x':
+                    xValue = value;
+                    break;
+                case 'y':
+                    yValue = value;
+                    break;
+                case 'z':
+                    zValue = value;
+                    break;
+            }
+
+            // 更新选中状态
+            updateImageSelection(variable, value);
+
+            // 如果所有值都已选择，计算结果
+            if (xValue !== null && yValue !== null && zValue !== null) {
+                calculateResults();
+            }
+        }
+
+        function updateImageSelection(variable, value) {
+            // 移除当前变量所有图片的选中状态
+            const container = document.getElementById(`${variable}-variables`);
+            const allOptions = container.getElementsByClassName('image-option');
+            Array.from(allOptions).forEach(option => {
+                option.classList.remove('selected');
+            });
+
+            // 为选中的图片添加选中状态
+            const selectedImage = Array.from(allOptions).find(option => {
+                return option.querySelector('img').alt === `Value ${value}`;
+            });
+            if (selectedImage) {
+                selectedImage.classList.add('selected');
+            }
+        }
+
+        function calculateResults() {
+            try {
+                // 计算结果
+                const result1 = (xValue * 2) + 11;
+                const result2 = ((zValue * 2) + yValue) - 5;
+                const result3 = Math.abs((zValue + yValue) - xValue);
+
+                // 更新显示
+                document.getElementById('result1').innerHTML = `1° Number: <strong>${result1}</strong>`;
+                document.getElementById('result2').innerHTML = `2° Number: <strong>${result2}</strong>`;
+                document.getElementById('result3').innerHTML = `3° Number: <strong>${result3}</strong>`;
+            } catch (error) {
+                console.error('Error calculating results:', error);
+                // 显示错误信息
+                document.getElementById('results').innerHTML = `
+                    <h3>Error</h3>
+                    <div class="result-item">An error occurred while calculating results. Please try again.</div>
+                `;
+            }
+        }
+    </script>
+</body>
+
+</html>
