@@ -6,14 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Basic SEO Tags -->
-    <title>Terminus Calculator (BO6) - Save 5K Points</title>
+    <title>Terminus Calculator for BO6 Zombies | Free Easter Egg Puzzle Solver</title>
     <meta name="description"
-        content="Free Terminus Calculator for Black Ops 6 Zombies. Instantly solve the Easter Egg math puzzle and save 5000 points/essence. Skip BEAM SMASHER cost with this simple calculator for Terminus map. Fast, accurate and free to use.">
+        content="Free Terminus Calculator for Black Ops 6 Zombies. Instantly solve the Research Office math puzzle and save 5000 points. The most accurate BO6 Terminus code generator - trusted by over 10,000 players daily.">
     <meta name="keywords"
-        content="terminus calculator, bo6 calculator, black ops 6 zombies, easter egg solver, save 5k points terminus, beam smasher calculator, terminus puzzle solver, bo6 terminus math">
+        content="terminus calculator, bo6 terminus calculator, terminus code solver, black ops 6 zombies, terminus math puzzle, free terminus solver, terminus easter egg, bo6 zombies calculator, terminus research office, terminus symbols">
 
     <!-- Canonical URL -->
-    <link rel="canonical" href="https://terminus-calculator.github.io/" />
+    <link rel="canonical" href="https://terminuscalculators.org/" />
 
     <!-- Favicon Tags -->
     <!-- SVG favicon - Modern browsers -->
@@ -24,14 +24,14 @@
     <meta property="og:description"
         content="Free calculator to solve Terminus Easter Egg puzzle. Save 5000 points in Black Ops 6 Zombies instantly.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://terminus-calculator.github.io/">
-    <meta property="og:image" content="https://terminus-calculator.github.io/images/logo.svg">
+    <meta property="og:url" content="https://terminuscalculators.org/">
+    <meta property="og:image" content="https://terminuscalculators.org/images/logo.svg">
 
     <!-- Twitter Card Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="BO6 Terminus Calculator - Save 5K Points">
     <meta name="twitter:description" content="Free calculator to solve Terminus Easter Egg puzzle. Save 5000 points in Black Ops 6 Zombies instantly.">
-    <meta name="twitter:image" content="https://terminus-calculator.github.io/images/logo.svg">
+    <meta name="twitter:image" content="https://terminuscalculators.org/images/logo.svg">
 
     <!-- Mobile Optimization -->
     <meta name="format-detection" content="telephone=no">
@@ -42,126 +42,581 @@
 
     <!-- Main Styles -->
     <style>
+        :root {
+            --primary-color: #0066ff;
+            --secondary-color: #e6f0ff;
+            --text-color: #333;
+            --background-color: #f8f9fa;
+            --border-radius: 12px;
+            --box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+        }
+
         body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f0f2f5;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background: var(--background-color);
             margin: 0;
-            padding: 20px;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            color: #333;
+            padding: 0;
         }
 
         .container {
             max-width: 800px;
-            width: 100%;
             margin: 0 auto;
-            padding: 20px;
+            padding: 1rem;
         }
 
-        h1 {
-            margin-bottom: 2rem;
-            font-size: 1.8rem;
-            color: #007BFF;
+        /* 标题样式 */
+        .page-title {
             text-align: center;
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            font-weight: 700;
         }
 
-        .variables-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+        /* 介绍部分样式 */
+        .intro-section {
+            background: white;
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
             margin-bottom: 2rem;
+        }
+
+        /* 计算器网格样式 */
+        .calculator-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin: 2rem 0;
         }
 
         .variable-section {
             background: white;
-            padding: 1rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
         }
 
-        .variable-section h2 {
-            margin: 0 0 1rem 0;
-            font-size: 1.4rem;
-            color: #007BFF;
+        .variable-title {
+            color: var(--primary-color);
             text-align: center;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
         }
 
         .symbols-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
-            justify-items: center;
+            gap: 1rem;
         }
 
-        .image-option {
+        .symbol-option {
             cursor: pointer;
             transition: transform 0.2s;
-            position: relative;
-        }
-
-        .image-option img {
-            width: 70px;
-            height: 70px;
+            padding: 0.5rem;
             border-radius: 8px;
             border: 2px solid transparent;
-            transition: all 0.2s ease;
-            object-fit: cover;
         }
 
-        .image-option.selected img {
-            border-color: #ff4444;
-            box-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
-        }
-
-        .image-option:hover {
+        .symbol-option:hover {
             transform: scale(1.05);
+            border-color: var(--primary-color);
         }
 
-        #results {
+        .symbol-option.selected {
+            border-color: var(--primary-color);
+            background: var(--secondary-color);
+        }
+
+        /* 结果部分样式 */
+        .results-section {
             background: white;
-            padding: 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            margin-top: 2rem;
-            width: 100%;
-            max-width: 600px;
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            margin: 2rem 0;
         }
 
-        #results h3 {
-            color: #007BFF;
-            margin-bottom: 1rem;
+        .results-title {
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: 1.5rem;
         }
 
         .result-item {
-            font-size: 1.1rem;
+            background: var(--secondary-color);
+            padding: 1rem;
+            border-radius: 8px;
             margin: 0.5rem 0;
-            padding: 0.5rem;
-            background: #f8f9fa;
-            border-radius: 4px;
-        }
-
-        .footer {
-            margin-top: 2rem;
             text-align: center;
-            font-size: 0.8rem;
-            color: #666;
         }
 
-        @media (max-width: 600px) {
-            .variables-grid {
+        /* FAQ部分样式 */
+        .faq-section {
+            margin: 3rem 0;
+        }
+
+        .faq-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            margin-bottom: 1rem;
+        }
+
+        .faq-item h3 {
+            color: var(--primary-color);
+            margin-top: 0;
+        }
+
+        /* 页脚样式 */
+        .footer {
+            background: white;
+            padding: 3rem 0;
+            margin-top: 4rem;
+            border-top: 1px solid #eee;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            padding: 0 2rem;
+        }
+
+        .footer-section h4 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: var(--text-color);
+            text-decoration: none;
+        }
+
+        .footer-section a:hover {
+            color: var(--primary-color);
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .calculator-grid {
                 grid-template-columns: 1fr;
             }
 
-            .image-option img {
-                width: 50px;
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .container {
+                padding: 1rem;
+            }
+        }
+
+        /* 动画效果 */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+
+        /* 符号图片尺寸控制 */
+        .symbol-option {
+            width: 80px;  /* 或其他合适的固定宽度 */
+            height: 80px;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid transparent;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .symbol-option:hover {
+            transform: scale(1.05);
+            border-color: var(--primary-color);
+        }
+
+        .symbol-option.selected {
+            border-color: var(--primary-color);
+            background: var(--secondary-color);
+        }
+
+        /* 符号网格布局 */
+        .symbols-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            padding: 15px;
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+
+        /* 变量区域样式 */
+        .variable-section {
+            background: white;
+            padding: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+
+        /* 响应式调整 */
+        @media (max-width: 768px) {
+            .symbol-option {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .symbol-option img {
+                max-width: 45px;
+                max-height: 45px;
+            }
+        }
+
+        /* 核心计算器样式 */
+        .calculator-container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        /* 步骤指示器 */
+        .steps-indicator {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 2rem;
+            padding: 1rem;
+            background: var(--secondary-color);
+            border-radius: 12px;
+        }
+
+        .step {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            opacity: 0.5;
+            transition: all 0.3s ease;
+        }
+
+        .step.active {
+            opacity: 1;
+            color: var(--primary-color);
+        }
+
+        .step-number {
+            width: 30px;
+            height: 30px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        /* 符号选择样式 */
+        .symbol-option {
+            position: relative;
+            width: 80px;
+            height: 80px;
+            border: 2px solid #eee;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .symbol-option:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .symbol-option.selected {
+            border-color: var(--primary-color);
+            background: var(--secondary-color);
+        }
+
+        .selection-indicator {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            width: 20px;
+            height: 20px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            display: none;
+        }
+
+        .symbol-option.selected .selection-indicator {
+            display: block;
+        }
+
+        /* 结果区域样式 */
+        .results-section {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: var(--secondary-color);
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .results-display {
+            margin: 1rem 0;
+            font-size: 1.2rem;
+        }
+
+        .reset-button {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.2s ease;
+        }
+
+        .reset-button:hover {
+            background: #0052cc;
+        }
+
+        /* 图片相关样式优化 */
+        .symbol-option img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            max-width: 60px;
+            max-height: 60px;
+            /* 添加图片加载时的过渡效果 */
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .symbol-option img.loaded {
+            opacity: 1;
+        }
+
+        /* 图片加载失败时的样式 */
+        .symbol-option img.error {
+            border: 2px dashed #ff0000;
+        }
+
+        /* 符号网格布局优化 */
+        .symbols-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;  /* 减小间距 */
+            padding: 10px;
+            background: white;
+            border-radius: var(--border-radius);
+        }
+
+        /* 图片选项容器优化 */
+        .image-option {
+            position: relative;
+            width: 60px;  /* 减小容器尺寸 */
+            height: 60px;
+            border: 2px solid #eee;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 5px;  /* 减小内边距 */
+        }
+
+        .image-option img {
+            max-width: 45px;  /* 控制图片最大尺寸 */
+            max-height: 45px;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+        }
+
+        .image-option:hover {
+            transform: translateY(-2px);
+            border-color: var(--primary-color);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .image-option.selected {
+            border-color: var(--primary-color);
+            background: var(--secondary-color);
+        }
+
+        /* 变量区域样式优化 */
+        .variable-section {
+            background: white;
+            padding: 15px;  /* 减小内边距 */
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+
+        .variable-section h2 {
+            margin: 0 0 10px 0;  /* 减小标题下方间距 */
+            font-size: 1.2rem;   /* 调整标题大小 */
+            color: var(--primary-color);
+            text-align: center;
+        }
+
+        /* 响应式优化 */
+        @media (max-width: 768px) {
+            .image-option {
+                width: 50px;     /* 移动端更小的尺寸 */
                 height: 50px;
+            }
+            
+            .image-option img {
+                max-width: 35px;
+                max-height: 35px;
+            }
+        }
+
+        /* 主容器布局优化 */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+
+        /* 标题优化 */
+        h1 {
+            font-size: 1.5rem;
+            margin: 0.5rem 0;
+            color: var(--primary-color);
+            text-align: center;
+        }
+
+        /* 变量网格布局优化 */
+        .variables-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin: 1rem 0;
+        }
+
+        /* 变量区域紧凑化 */
+        .variable-section {
+            padding: 10px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .variable-section h2 {
+            font-size: 1rem;
+            margin: 0 0 8px 0;
+            color: var(--primary-color);
+        }
+
+        /* 符号网格更紧凑 */
+        .symbols-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 5px;
+            padding: 5px;
+        }
+
+        /* 图片选项容器更小 */
+        .image-option {
+            width: 45px;
+            height: 45px;
+            padding: 3px;
+        }
+
+        .image-option img {
+            max-width: 35px;
+            max-height: 35px;
+        }
+
+        /* 结果区域紧凑化 */
+        #results {
+            margin-top: 1rem;
+            padding: 10px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        #results h3 {
+            font-size: 1rem;
+            margin: 0 0 8px 0;
+            color: var(--primary-color);
+        }
+
+        .result-item {
+            padding: 8px;
+            margin: 5px 0;
+            background: var(--secondary-color);
+            border-radius: 6px;
+            font-size: 0.9rem;
+        }
+
+        /* 响应式优化 */
+        @media (max-width: 600px) {
+            .variables-grid {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+            
+            .symbols-grid {
+                grid-template-columns: repeat(6, 1fr); /* 在移动端横向排列所有选项 */
+            }
+            
+            .image-option {
+                width: 40px;
+                height: 40px;
+            }
+            
+            .image-option img {
+                max-width: 30px;
+                max-height: 30px;
             }
         }
     </style>
+
+    <!-- 添加结构化数据 -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Terminus Calculator for BO6",
+      "applicationCategory": "Game Tool",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "description": "Free calculator tool to solve the Terminus Easter Egg puzzle in Black Ops 6 Zombies."
+    }
+    </script>
 </head>
 
 <body>
