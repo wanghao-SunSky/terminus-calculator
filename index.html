@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Basic SEO Tags -->
-    <title>Terminus Calculator for BO6 Zombies | Free Easter Egg Puzzle Solver</title>
+    <title>Free Terminus Calculator for BO6 Zombies | Instant Math Puzzle Solver</title>
     <meta name="description"
         content="Free Terminus Calculator for Black Ops 6 Zombies. Instantly solve the Research Office math puzzle and save 5000 points. The most accurate BO6 Terminus code generator - trusted by over 10,000 players daily.">
     <meta name="keywords"
@@ -599,6 +599,50 @@
                 max-height: 30px;
             }
         }
+
+        /* 底部内容区域样式 */
+        .faq-section, .related-content {
+            max-width: 600px;  /* 限制最大宽度 */
+            margin: 3rem auto; /* 上下间距3rem，左右自动居中 */
+            padding: 0 1rem;   /* 左右内边距，确保小屏幕下有边距 */
+        }
+
+        .faq-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            margin-bottom: 1rem;
+            text-align: left;  /* 内容左对齐 */
+        }
+
+        .guide-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .guide-grid article {
+            background: white;
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+
+        /* 标题样式 */
+        .faq-section h2, .related-content h2 {
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+        }
+
+        /* 响应式调整 */
+        @media (max-width: 768px) {
+            .guide-grid {
+                grid-template-columns: 1fr;  /* 移动端单列显示 */
+            }
+        }
     </style>
 
     <!-- 添加结构化数据 -->
@@ -777,6 +821,70 @@
                 `;
             }
         }
+    </script>
+
+    <!-- 在计算器下方添加 SEO 内容 -->
+    <section class="faq-section">
+        <h2>Terminus Calculator Guide</h2>
+        
+        <div class="faq-item">
+            <h3>What is the BO6 Terminus Calculator?</h3>
+            <p>The Terminus Calculator is a free online tool designed specifically for Black Ops 6 Zombies players. It helps you instantly solve the Research Office math puzzle, saving you 5000 points and valuable time during your gameplay.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>How to Use the Terminus Calculator</h3>
+            <ol>
+                <li>Find the three symbols in the Research Office terminal</li>
+                <li>Select the matching symbols in our calculator (X, Y, and Z variables)</li>
+                <li>Get your instant solution - 100% accuracy guaranteed</li>
+            </ol>
+        </div>
+
+        <div class="faq-item">
+            <h3>Why Choose Our Terminus Calculator?</h3>
+            <ul>
+                <li>✓ Completely Free to Use</li>
+                <li>✓ Instant Results</li>
+                <li>✓ Mobile-Friendly Design</li>
+                <li>✓ Updated for Latest BO6 Version</li>
+                <li>✓ Used by 10,000+ Players Daily</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- 添加相关内容区域 -->
+    <section class="related-content">
+        <h2>More BO6 Terminus Guides</h2>
+        <div class="guide-grid">
+            <article>
+                <h3>Complete Terminus Guide</h3>
+                <p>Master the Terminus Easter Egg with our comprehensive calculator guide. Includes symbol locations, step-by-step instructions, and advanced tips.</p>
+                <a href="/terminus-guide.html" class="guide-link">Read Full Guide →</a>
+            </article>
+            <article>
+                <h3>Symbol Locations</h3>
+                <p>Detailed map and screenshots of all Terminus symbol locations in the Research Office.</p>
+                <a href="/terminus-guide.html#symbol-locations" class="guide-link">View Locations →</a>
+            </article>
+        </div>
+    </section>
+
+    <!-- 添加结构化数据 -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Terminus Calculator for BO6",
+      "applicationCategory": "Game Tool",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "description": "Free calculator tool to solve the Terminus Easter Egg puzzle in Black Ops 6 Zombies."
+    }
     </script>
 </body>
 
