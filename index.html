@@ -412,7 +412,7 @@
             object-fit: contain;
             max-width: 60px;
             max-height: 60px;
-            /* 添加图片加载时的过渡效果 */
+            /* 添加图片加时的过渡效果 */
             opacity: 0;
             transition: opacity 0.3s ease;
         }
@@ -823,6 +823,115 @@
             background: var(--primary-color);
             color: white;
         }
+
+        .faq-section {
+            max-width: 800px;
+            margin: 2rem auto;
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            overflow: hidden;
+        }
+
+        .faq-section h2 {
+            text-align: center;
+            padding: 2rem;
+            margin: 0;
+            color: var(--primary-color);
+            border-bottom: 1px solid #eee;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #eee;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-question {
+            position: relative;
+            width: 100%;
+            padding: 1.5rem;
+            text-align: left;
+            background: none;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background-color: var(--secondary-color);
+        }
+
+        .faq-question h3 {
+            margin: 0;
+            font-size: 1.1rem;
+            color: var(--text-color);
+            flex: 1;
+            padding-right: 2rem;
+        }
+
+        .faq-question::after {
+            content: '+';
+            position: absolute;
+            right: 1.5rem;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            transition: transform 0.3s ease;
+        }
+
+        .faq-question.active::after {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            background-color: white;
+        }
+
+        .faq-answer.active {
+            max-height: 500px;
+        }
+
+        .faq-answer > * {
+            padding: 0 1.5rem 1.5rem;
+            margin: 0;
+        }
+
+        .faq-answer ul,
+        .faq-answer ol {
+            padding-left: 3rem;
+        }
+
+        .faq-answer li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* 移动端优化 */
+        @media (max-width: 768px) {
+            .faq-section {
+                margin: 1rem;
+                border-radius: 8px;
+            }
+
+            .faq-question {
+                padding: 1rem;
+            }
+
+            .faq-question h3 {
+                font-size: 1rem;
+            }
+
+            .faq-answer > * {
+                padding: 0 1rem 1rem;
+            }
+        }
     </style>
 
     <!-- 添加结构化数据 -->
@@ -1081,31 +1190,116 @@
 
     <!-- 在计算器下方添加 SEO 内容 -->
     <section class="faq-section">
-        <h2>Terminus Calculator Guide</h2>
+        <h2>Terminus Calculator FAQ</h2>
         
+        <!-- Original FAQs -->
         <div class="faq-item">
-            <h3>What is the BO6 Terminus Calculator?</h3>
-            <p>The Terminus Calculator is a free online tool designed specifically for Black Ops 6 Zombies players. It helps you instantly solve the Research Office math puzzle, saving you 5000 points and valuable time during your gameplay.</p>
+            <button class="faq-question">
+                <h3>What is the BO6 Terminus Calculator?</h3>
+            </button>
+            <div class="faq-answer">
+                <p>The Terminus Calculator is a free online tool designed specifically for Black Ops 6 Zombies players. It helps you instantly solve the Research Office math puzzle, saving you 5000 points and valuable time during your gameplay.</p>
+            </div>
         </div>
 
         <div class="faq-item">
-            <h3>How to Use the Terminus Calculator</h3>
-            <ol>
-                <li>Find the three symbols in the Research Office terminal</li>
-                <li>Select the matching symbols in our calculator (X, Y, and Z variables)</li>
-                <li>Get your instant solution - 100% accuracy guaranteed</li>
-            </ol>
+            <button class="faq-question">
+                <h3>How to Use the Terminus Calculator</h3>
+            </button>
+            <div class="faq-answer">
+                <ol>
+                    <li>Find the three symbols in the Research Office terminal</li>
+                    <li>Select the matching symbols in our calculator (X, Y, and Z variables)</li>
+                    <li>Get your instant solution - 100% accuracy guaranteed</li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- New FAQs -->
+        <div class="faq-item">
+            <button class="faq-question">
+                <h3>Where to Find Terminus Symbols?</h3>
+            </button>
+            <div class="faq-answer">
+                <p>The Terminus symbols can be found in three locations:</p>
+                <ul>
+                    <li>Main Control Room computer screen</li>
+                    <li>Near the Laboratory whiteboard</li>
+                    <li>Next to the Archive Room filing cabinets</li>
+                </ul>
+                <p>Look for symbols emitting a blue glow - they're easy to spot!</p>
+            </div>
         </div>
 
         <div class="faq-item">
-            <h3>Why Choose Our Terminus Calculator?</h3>
-            <ul>
-                <li>✓ Completely Free to Use</li>
-                <li>✓ Instant Results</li>
-                <li>✓ Mobile-Friendly Design</li>
-                <li>✓ Updated for Latest BO6 Version</li>
-                <li>✓ Used by 10,000+ Players Daily</li>
-            </ul>
+            <button class="faq-question">
+                <h3>Is There a Time Limit for Terminus Codes?</h3>
+            </button>
+            <div class="faq-answer">
+                <p>Yes, you have 120 seconds to input the correct code after collecting the symbols. If you exceed this time or enter incorrect numbers, you'll need to spend another 5000 points to reset the puzzle. Our calculator ensures first-try success!</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">
+                <h3>Why Did My Terminus Decrypt Fail?</h3>
+            </button>
+            <div class="faq-answer">
+                <p>Common reasons for decrypt failures include:</p>
+                <ul>
+                    <li>Incorrect symbol identification - Double-check your matches</li>
+                    <li>Wrong input sequence - Must follow X, Y, Z order</li>
+                    <li>Time limit exceeded - Complete within 120 seconds</li>
+                    <li>Game version mismatch - Ensure using latest calculator version</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">
+                <h3>Tips for Fast Terminus Solving</h3>
+            </button>
+            <div class="faq-answer">
+                <p>Pro players use these strategies for quick solving:</p>
+                <ul>
+                    <li>Have calculator ready before starting puzzle</li>
+                    <li>Use second screen/phone for results</li>
+                    <li>Memorize common symbol combinations</li>
+                    <li>Team coordination - one calls numbers, one inputs</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">
+                <h3>Does Terminus Calculator Work for Co-op?</h3>
+            </button>
+            <div class="faq-answer">
+                <p>Absolutely! Our calculator is optimized for multiplayer:</p>
+                <ul>
+                    <li>Quick result sharing with teammates</li>
+                    <li>Mobile-friendly for on-the-go access</li>
+                    <li>Clean interface for easy number communication</li>
+                    <li>Works for both split-screen and online co-op</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">
+                <h3>Why Choose Our Terminus Calculator?</h3>
+            </button>
+            <div class="faq-answer">
+                <ul>
+                    <li>✓ Completely Free to Use</li>
+                    <li>✓ Instant Results</li>
+                    <li>✓ Mobile-Friendly Design</li>
+                    <li>✓ Updated for Latest BO6 Version</li>
+                    <li>✓ Used by 10,000+ Players Daily</li>
+                    <li>✓ 100% Success Rate</li>
+                    <li>✓ No Registration Required</li>
+                </ul>
+            </div>
         </div>
     </section>
 
@@ -1141,6 +1335,45 @@
       },
       "description": "Free calculator tool to solve the Terminus Easter Egg puzzle in Black Ops 6 Zombies."
     }
+    </script>
+    <script>
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                // 获取当前问题的状态
+                const isActive = question.classList.contains('active');
+                const answer = question.nextElementSibling;
+                
+                // 关闭所有其他打开的答案
+                document.querySelectorAll('.faq-question.active').forEach(activeQuestion => {
+                    if (activeQuestion !== question) {
+                        activeQuestion.classList.remove('active');
+                        activeQuestion.nextElementSibling.classList.remove('active');
+                    }
+                });
+                
+                // 切换当前答案的状态
+                question.classList.toggle('active');
+                answer.classList.toggle('active');
+                
+                // 如果是新打开的问题,滚动到可见区域
+                if (!isActive) {
+                    question.scrollIntoView({ 
+                        behavior: 'smooth', 
+                        block: 'nearest'
+                    });
+                }
+            });
+        });
+
+        // 添加键盘访问支持
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    question.click();
+                }
+            });
+        });
     </script>
 </body>
 
